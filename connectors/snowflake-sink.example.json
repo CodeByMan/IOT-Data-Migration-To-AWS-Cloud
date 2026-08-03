@@ -1,0 +1,25 @@
+{
+  "name": "hackathon-snowflake-sink",
+  "config": {
+    "name": "hackathon-snowflake-sink",
+    "connector.class": "com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector",
+    "tasks.max": "1",
+    "topics": "cdc.public.iot_events",
+    "snowflake.topic2table.map": "cdc.public.iot_events:IOT_EVENTS",
+    "snowflake.url.name": "${SNOWFLAKE_URL}",
+    "snowflake.user.name": "${SNOWFLAKE_USER}",
+    "snowflake.private.key": "${SNOWFLAKE_PRIVATE_KEY}",
+    "snowflake.private.key.passphrase": "${SNOWFLAKE_PRIVATE_KEY_PASSPHRASE}",
+    "snowflake.database.name": "HACKATHON_IOT",
+    "snowflake.schema.name": "RAW",
+    "snowflake.role.name": "HACKATHON_KAFKA_CONNECTOR_ROLE",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "consumer.override.auto.offset.reset": "earliest",
+    "snowflake.streaming.validate.compatibility.with.classic": "false",
+    "errors.tolerance": "none",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "false"
+  }
+}

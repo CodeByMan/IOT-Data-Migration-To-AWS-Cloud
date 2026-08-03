@@ -1,0 +1,5 @@
+streamlit>=1.60,<2
+snowflake-connector-python[pandas]>=4.7,<5
+pandas>=2.3,<4
+pydeck>=0.9,<1
+altair>=6,<7

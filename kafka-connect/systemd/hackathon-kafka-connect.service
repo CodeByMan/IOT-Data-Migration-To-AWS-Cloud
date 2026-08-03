@@ -1,0 +1,38 @@
+[Unit]
+Description=Hackathon self-managed Kafka Connect JDBC Sink and Debezium CDC
+Documentation=https://kafka.apache.org/documentation/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kafkaconnect
+Group=kafkaconnect
+
+RuntimeDirectory=hackathon-kafka-connect
+RuntimeDirectoryMode=0700
+StateDirectory=hackathon-kafka-connect
+StateDirectoryMode=0700
+
+UMask=0077
+Environment="KAFKA_HEAP_OPTS=-Xms128m -Xmx384m"
+
+ExecStartPre=/usr/local/sbin/hackathon-connect-bootstrap
+ExecStart=/opt/kafka/bin/connect-standalone.sh /run/hackathon-kafka-connect/worker.properties /run/hackathon-kafka-connect/jdbc-sink.properties /run/hackathon-kafka-connect/debezium-source.properties
+
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=120
+TimeoutStopSec=60
+SuccessExitStatus=143
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hackathon-kafka-connect
+
+[Install]
+WantedBy=multi-user.target

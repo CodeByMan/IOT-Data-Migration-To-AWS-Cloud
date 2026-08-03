@@ -1,0 +1,12 @@
+{
+    "template_name":  "geoLocation",
+    "mqtt_topic":  "iot/geolocation",
+    "parallel_device_count":  5,
+    "payload_schema":  {
+                           "latitude":  "number",
+                           "longitude":  "number",
+                           "timestamp":  "ISO-8601 UTC string",
+                           "device_id":  "string",
+                           "aqi":  "integer"
+                       }
+}

@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HACKATHON_IOT
+    schema: RAW
+    tables:
+      - name: IOT_EVENTS
+        description: Debezium CDC records ingested by the Snowflake Kafka Connector.

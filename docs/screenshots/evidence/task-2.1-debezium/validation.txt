@@ -1,0 +1,22 @@
+PHASE 2 TASK 2.2 — SNOWFLAKE BRONZE INGESTION
+
+Connector name: hackathon-snowflake-sink
+Connector state: RUNNING
+Task count: 1
+Task state: RUNNING
+
+Source topic: cdc.public.iot_events
+Kafka offset entries: 1
+Kafka recorded offset: 3
+Kafka records consumed: YES
+
+Snowflake database: HACKATHON_IOT
+Snowflake schema: RAW
+Snowflake table: IOT_EVENTS
+Snowflake record count: 3
+
+Credentials displayed: NO
+Private key displayed: NO
+Passphrase displayed: NO
+
+RESULT: PASS

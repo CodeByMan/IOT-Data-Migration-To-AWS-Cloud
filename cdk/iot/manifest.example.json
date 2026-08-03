@@ -1,0 +1,27 @@
+[
+  {
+    "device_id": "hackathon-iot-device-01",
+    "certificate_path": "certificates/hackathon-iot-device-01-certificate.pem.crt",
+    "private_key_path": "certificates/hackathon-iot-device-01-private.pem.key"
+  },
+  {
+    "device_id": "hackathon-iot-device-02",
+    "certificate_path": "certificates/hackathon-iot-device-02-certificate.pem.crt",
+    "private_key_path": "certificates/hackathon-iot-device-02-private.pem.key"
+  },
+  {
+    "device_id": "hackathon-iot-device-03",
+    "certificate_path": "certificates/hackathon-iot-device-03-certificate.pem.crt",
+    "private_key_path": "certificates/hackathon-iot-device-03-private.pem.key"
+  },
+  {
+    "device_id": "hackathon-iot-device-04",
+    "certificate_path": "certificates/hackathon-iot-device-04-certificate.pem.crt",
+    "private_key_path": "certificates/hackathon-iot-device-04-private.pem.key"
+  },
+  {
+    "device_id": "hackathon-iot-device-05",
+    "certificate_path": "certificates/hackathon-iot-device-05-certificate.pem.crt",
+    "private_key_path": "certificates/hackathon-iot-device-05-private.pem.key"
+  }
+]

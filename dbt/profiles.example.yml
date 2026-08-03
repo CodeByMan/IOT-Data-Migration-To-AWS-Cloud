@@ -1,0 +1,16 @@
+hackathon_iot:
+  target: dev
+
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('DBT_SNOWFLAKE_PRIVATE_KEY_PATH') }}"
+      private_key_passphrase: "{{ env_var('DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE') }}"
+      role: HACKATHON_KAFKA_CONNECTOR_ROLE
+      database: HACKATHON_IOT
+      warehouse: HACKATHON_DBT_WH
+      schema: CLEAN
+      threads: 2
+      client_session_keep_alive: false

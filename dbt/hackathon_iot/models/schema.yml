@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: silver_iot_events
+    description: >
+      Cleaned and typed CDC events from Snowflake RAW.IOT_EVENTS.
+      It preserves create, update, delete and snapshot operations,
+      validates identifiers, parses timestamps and adds AQI severity tags.
+
+    columns:
+      - name: device_id
+        description: Source IoT device identifier.
+        data_tests:
+          - not_null
+
+      - name: operation
+        description: Debezium CDC operation code.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['c', 'u', 'd', 'r']
+
+      - name: operation_name
+        data_tests:
+          - not_null
+
+      - name: event_timestamp
+        description: Parsed source timestamp with CDC timestamp fallback.
+        data_tests:
+          - not_null
+
+      - name: event_date
+        data_tests:
+          - not_null
+
+      - name: severity_tag
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - GOOD
+                  - MODERATE
+                  - UNHEALTHY_FOR_SENSITIVE_GROUPS
+                  - UNHEALTHY
+                  - VERY_UNHEALTHY
+                  - HAZARDOUS
+                  - UNKNOWN
+
+  - name: gold_device_daily
+    description: Daily IoT and CDC aggregates grouped by device and date.
+
+    columns:
+      - name: device_id
+        data_tests:
+          - not_null
+
+      - name: event_date
+        data_tests:
+          - not_null
+
+      - name: total_cdc_events
+        data_tests:
+          - not_null
